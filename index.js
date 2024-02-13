@@ -13,7 +13,7 @@ import { fileURLToPath } from "url";
 //env configuration file
 dotenv.config();
 //main backend index.js connection with database
-ConnectionDB();
+
 //REST API, using express: 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,8 +36,10 @@ app.get('*', (req, res) =>{
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 //declaring port
-const port = 8080 || process.env.port;
+const PORT = 8080 || process.env.PORT;
 //listening to server requests on port 
-app.listen(port, () => {
-  console.log(`Server Started: ${port}`);
+ConnectionDB().then(()=>{
+  app.listen(port, () => {
+    console.log(`Server Started: ${PORT}`);
+  });
 });
