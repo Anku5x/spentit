@@ -44,7 +44,7 @@ app.get('/server', async (req, res)=>{
   }
 });
 //declaring port
-const PORT = process.env.PORT||3000;
+const PORT = process.env.PORT||8080;
 //listening to server requests on port 
 ConnectionDB().then(()=>{
   app.listen(PORT, () => {
