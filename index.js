@@ -38,7 +38,7 @@ app.get('*', (req, res) =>{
 //testing server
 app.get('/server', async (req, res)=>{
   try{
-    res.send('<h1>Server is on</h1>')
+    res.send('<h1>Server is on</h1>');
   }catch(err){
     console.log(err);
   }
