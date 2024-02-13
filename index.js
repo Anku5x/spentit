@@ -39,7 +39,7 @@ app.get('*', (req, res) =>{
 const PORT = 8080 || process.env.PORT;
 //listening to server requests on port 
 ConnectionDB().then(()=>{
-  app.listen(port, () => {
+  app.listen(PORT, () => {
     console.log(`Server Started: ${PORT}`);
   });
 });
