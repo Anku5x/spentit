@@ -36,7 +36,7 @@ app.get('*', (req, res) =>{
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 //declaring port
-const PORT = 'https://smiling-foal-hem.cyclic.app' || process.env.PORT;
+const PORT = process.env.PORT;
 //listening to server requests on port 
 ConnectionDB().then(()=>{
   app.listen(PORT, () => {
