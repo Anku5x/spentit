@@ -35,6 +35,10 @@ app.use(express.static(path.join(__dirname, './client/build')));
 app.get('*', (req, res) =>{
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
+//testing server
+app.get('/server', (req, res)=>{
+res.send('<h1>Server is on</h2>')
+})
 //declaring port
 const PORT = process.env.PORT;
 //listening to server requests on port 
