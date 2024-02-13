@@ -8,12 +8,15 @@ import { userRouter } from './routes/userRoute.js'
 import { transactionRouter } from './routes/transactionRoute.js'
 import {deleteRouter} from './routes/deleteRoute.js'
 import path from 'path'
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 //env configuration file
 dotenv.config();
 //main backend index.js connection with database
 ConnectionDB();
 //REST API, using express: 
 const app = express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 //middlewares right after importing express because of sync programming
 //Middlewares in this project: Cors to send data to frontend, Morgan and JSON support pakage. 
 app.use(cors());
@@ -28,9 +31,9 @@ app.use('/api/v1/transactions/', transactionRouter);
 //delete router:
 app.use('/api/v1/delete/', deleteRouter);
 //static files
-app.use(express.static(path.join(__dirname, './Client/build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 app.get('*', (req, res) =>{
-  res.sendFile(path.join(__dirname, './Client/build/index.html'));
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 //declaring port
 const port = 8080 || process.env.port;
