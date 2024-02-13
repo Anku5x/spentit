@@ -13,7 +13,6 @@ import { fileURLToPath } from "url";
 //env configuration file
 dotenv.config();
 //main backend index.js connection with database
-
 //REST API, using express: 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
