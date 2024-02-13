@@ -36,9 +36,13 @@ app.get('*', (req, res) =>{
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 //testing server
-app.get('/server', (req, res)=>{
-res.send('<h1>Server is on</h1>')
-})
+app.get('/server', async (req, res)=>{
+  try{
+    res.send('<h1>Server is on</h1>')
+  }catch(err){
+    console.log(err);
+  }
+});
 //declaring port
 const PORT = process.env.PORT;
 //listening to server requests on port 
