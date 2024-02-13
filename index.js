@@ -37,7 +37,7 @@ app.get('*', (req, res) =>{
 })
 //testing server
 app.get('/server', (req, res)=>{
-res.send('<h1>Server is on</h2>')
+res.send('<h1>Server is on</h1>')
 })
 //declaring port
 const PORT = process.env.PORT;
